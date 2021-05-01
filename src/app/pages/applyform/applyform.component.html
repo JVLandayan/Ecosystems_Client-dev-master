@@ -1,0 +1,121 @@
+<div class="body">
+  <div class="main">
+    <div class="container" style="padding-left: 0px; padding-right: 0px">
+      <div class="signup-content">
+        <div class="signup-img">
+          <img
+            src="https://i.ibb.co/zHcPfx6/40650250-1902498356439561-1432993779358367744-n.jpg"
+            alt=""
+            style="height: 813.8px"
+          />
+        </div>
+        <div class="signup-form">
+          <form
+            [formGroup]="form"
+            #f="ngForm"
+            (ngSubmit)="onSubmit(f)"
+            name="google-sheet"
+            class="register-form"
+            id="register-form"
+          >
+            <h2>Application Form</h2>
+            <div class="form-group">
+              <label for="address">Last Name :</label>
+              <input
+                type="text"
+                placeholder="Last Name"
+                name="LastName"
+                formControlName="last_name"
+                id="address"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="birth_date">First Name :</label>
+              <input
+                type="text"
+                placeholder="First Name"
+                name="FirstName"
+                formControlName="first_name"
+                id="birth_date"
+              />
+            </div>
+            <div class="form-group">
+              <label for="pincode">Middle Name :</label>
+              <input
+                type="text"
+                placeholder="Middle Name"
+                name="MiddleName"
+                formControlName="middle_name"
+                id="pincode"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Student Number :</label>
+              <input
+                type="text"
+                placeholder="Student Number"
+                name="StudentNumber"
+                formControlName="student_number"
+                pattern="[0-9]+"
+                minlength="10"
+                maxlength="10"
+                onkeypress="return event.charCode>=48 && event.charCode<=57"
+              />
+              <span>{{
+                form.get("student_number").dirty &&
+                form.get("student_number").invalid
+                  ? "Student number is invalid"
+                  : ""
+              }}</span>
+            </div>
+            <div class="form-group">
+              <label for="email">UST Email :</label>
+              <input
+                type="email"
+                placeholder="UST Email"
+                name="UstEmail"
+                formControlName="ust_email"
+                id="email"
+                pattern=".+@ust.edu.ph"
+              />
+              <span>{{
+                form.get("ust_email").dirty && form.get("ust_email").invalid
+                  ? "Email is invalid, Please use your UST email"
+                  : "&nbsp;"
+              }}</span>
+            </div>
+            <div class="form-group">
+              <label for="course">Role (Pick one below)</label>
+              <div class="form-select">
+                <select name="Role" formControlName="role" id="course">
+                  <option value="Officer">Officer</option>
+                  <option value="Member">Member</option>
+                </select>
+                <span class="select-icon"
+                  ><i class="zmdi zmdi-chevron-down"></i
+                ></span>
+              </div>
+            </div>
+
+            <div class="form-submit">
+              <input
+                type="submit"
+                value="Submit Form"
+                class="submit"
+                name="submit"
+                id="submit"
+                [disabled]="f.invalid || isSubmitted"
+                style="
+                  font-family: Cabin, Helvetica Neue, Helvetica, Arial,
+                    sans-serif;
+                "
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

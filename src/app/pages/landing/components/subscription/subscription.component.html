@@ -1,0 +1,39 @@
+<div id="subscribe-css">
+  <p class="subscribe-note">SUBSCRIBE TO OUR NEWSLETTER</p>
+  <div class="subscribe-wrapper">
+    <div class="subscribe-form">
+      <form
+        class="subscribe-form"
+        method="post"
+        autocomplete="off"
+        name="google-sheet"
+        [formGroup]="form"
+        #f="ngForm"
+        (ngSubmit)="onSubmit(f)"
+      >
+        <input
+          autocomplete="off"
+          class="subscribe-css-email-field"
+          placeholder="Enter your Email"
+          type="email"
+          name="Email"
+          formControlName="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        /><input
+          class="subscribe-css-email-button"
+          title=""
+          type="submit"
+          value="submit"
+          name="submit"
+          value="Submit"
+          [disabled]="f.invalid"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+<footer class="bg-warning">
+  <div class="container text-center">
+    <p>Copyright ©&nbsp;Eco-Systems 2021</p>
+  </div>
+</footer>

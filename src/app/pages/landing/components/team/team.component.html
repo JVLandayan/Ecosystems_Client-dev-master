@@ -1,0 +1,79 @@
+<section
+  id="team"
+  class="content-section text-center"
+  style="padding: 100px 0px; background-color: rgb(248, 248, 248)"
+  *ngIf="team_list.length != 0"
+>
+  <div class="container">
+    <section
+      class="card-section-imagia"
+      style="padding-top: 0px; background-color: transparent"
+    >
+      <h1 style="color: #212529">Our team</h1>
+      <h2></h2>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-5 col-md-4" *ngFor="let teamdata of team_list">
+            <div class="card-container-imagia">
+              <div class="card-imagia">
+                <div class="front-imagia">
+                  <div class="cover-imagia">
+                    <img alt="" [src]="photoUrl + 'ecotigers_header.jpg'" />
+                  </div>
+                  <div class="user-imagia" style="width: 180px; height: 180px">
+                    <img
+                      class="img-circle"
+                      alt=""
+                      [src]="photoUrl + teamdata.teamsImage"
+                    />
+                  </div>
+                  <div class="content-imagia">
+                    <h3 class="name-imagia">{{ teamdata.teamsName }}</h3>
+                    <p class="subtitle-imagia">{{ teamdata.teamsRole }}</p>
+                  </div>
+                  <div class="footer-imagia">
+                    <span>More info</span>
+                  </div>
+                </div>
+                <div class="back-imagia">
+                  <div class="content-imagia content-back-imagia">
+                    <div>
+                      <h3 class="text-center back-heading">
+                        {{ teamdata.teamsRole }}
+                      </h3>
+                      <p class="text-center back-paragraph">
+                        {{ teamdata.teamsDetails }}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="footer-imagia">
+                    <div class="social-imagia text-center">
+                      <a
+                        [href]="teamdata.teamsFacebook"
+                        target="_blank"
+                        *ngIf="teamdata.teamsFacebook == null ? false : true"
+                        ><i class="fa fa-facebook"></i
+                      ></a>
+                      <a
+                        [href]="teamdata.teamsInstagram"
+                        target="_blank"
+                        *ngIf="teamdata.teamsInstagram == null ? false : true"
+                        ><i class="fa fa-instagram"></i
+                      ></a>
+                      <a
+                        [href]="teamdata.teamsTwitter"
+                        target="_blank"
+                        *ngIf="teamdata.teamsTwitter == null ? false : true"
+                        ><i class="fa fa-twitter"></i
+                      ></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

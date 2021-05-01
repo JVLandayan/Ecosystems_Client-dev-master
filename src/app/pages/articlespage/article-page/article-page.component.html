@@ -1,0 +1,78 @@
+<div class="main-wrapper" style="margin-left: 0px; background-color: white">
+  <div class="intro text-center" style="padding-top: 2%">
+    <a class="text-center" style="color: #6c757d" href="/articles">Go back</a>
+  </div>
+</div>
+
+<section class="py-5">
+  <div class="container py-4">
+    <div class="row text-center">
+      <div class="col-lg-8 mx-auto">
+        <h1 style="color: black">{{ activeArticle.name }}</h1>
+        <ul class="list-inline mb-5">
+          <li class="list-inline-item mx-2">
+            <a class="text-uppercase text-muted reset-anchor"
+              >BY {{ activeArticle.authorName }}</a
+            >
+          </li>
+          <li class="list-inline-item mx-2">
+            <a class="text-uppercase text-muted reset-anchor">{{
+              activeArticle.dateofPublish
+            }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <img
+      class="w-100 mb-5"
+      [src]="photoUrlApi + activeArticle.image"
+      height="600"
+      alt="..."
+    />
+    <div class="row">
+      <div class="col-lg-9">
+        <blockquote
+          class="blockquote bg-light p-4 p-lg-5 text-center mb-5"
+          [innerHTML]="activeArticle.content"
+        >
+          <p class="h4 mb-4">
+            Design is the fundamental soul of a human-made creation that ends up
+            expressing itself in successive outer layers of the product or
+            service.
+          </p>
+          <footer class="blockquote-footer">
+            <cite title="Source Title">Steve Jobs</cite>
+          </footer>
+        </blockquote>
+      </div>
+      <!-- Blog sidebar-->
+      <div class="col-lg-3">
+        <!-- About category-->
+        <div class="card rounded-0 border-0 bg-light mb-4 py-lg-4">
+          <div class="card-body text-center">
+            <h2 class="h3 mb-3" style="color: black">About me</h2>
+            <div *ngIf="isPhotoLoaded">
+              <img
+                *ngIf="this.articleAuthor != null"
+                class="rounded-circle mb-3"
+                [src]="photoUrlApi + articleAuthor.photoFileName"
+                alt="..."
+                style="height: 100px; width: 100px"
+              />
+              <img
+                *ngIf="this.articleAuthor == null"
+                class="rounded-circle mb-3"
+                [src]="photoUrlApi + activeArticle.authorImg"
+                alt="..."
+                style="height: 100px; width: 100px"
+              />
+            </div>
+            <p class="text-small text-muted">
+              {{ activeArticle.authorName }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

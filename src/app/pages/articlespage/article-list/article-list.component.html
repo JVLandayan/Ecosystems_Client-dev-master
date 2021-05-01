@@ -1,0 +1,55 @@
+<section class="blog-list px-3 py-5 p-md-5">
+  <div class="container">
+    <div class="intro">
+      <h2 class="text-center" style="font-size: 40px; color: black">
+        Articles
+      </h2>
+      <p class="text-center" style="color: #6c757d">
+        Nunc luctus in metus eget fringilla. Aliquam sed justo ligula.
+        Vestibulum nibh erat, pellentesque ut laoreet vitae.
+      </p>
+    </div>
+    <div
+      class="item mb-5"
+      *ngFor="
+        let article of blogContent.reverse()
+          | paginate: { itemsPerPage: 6, currentPage: pageNum }
+      "
+    >
+      <div class="media">
+        <img
+          class="mr-3 img-fluid post-thumb d-none d-md-flex"
+          [src]="photoUrl + article.image"
+          alt="image"
+          style="height: 100px; width: 200px"
+        />
+        <div class="media-body">
+          <h3 class="title mb-1">
+            <a [routerLink]="['/articles', article.id]" class="postheading">{{
+              article.name
+            }}</a>
+          </h3>
+          <div class="meta mb-1 sub-heading">
+            <span class="date">{{ article.dateofPublish }}</span>
+          </div>
+          <div class="intro">{{ article.contentIntro }}</div>
+          <a
+            class="more-link"
+            [routerLink]="['/routePath']"
+            routerLinkActive="router-link-active"
+            [routerLink]="['/articles', article.id]"
+            >Read more &rarr;</a
+          >
+        </div>
+        <!--//media-body-->
+      </div>
+      <!--//media-->
+    </div>
+    <!--//item-->
+
+    <pagination-controls
+      class="pagination"
+      (pageChange)="pageNum = $event"
+    ></pagination-controls>
+  </div>
+</section>

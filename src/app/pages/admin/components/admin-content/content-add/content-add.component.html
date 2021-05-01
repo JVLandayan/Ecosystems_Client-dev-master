@@ -1,0 +1,102 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Add Content</h4>
+        <p class="card-category">You can build your own article here</p>
+      </div>
+
+      <div class="card-body">
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="col-md-4">
+            <div class="row">
+              <span
+                *ngIf="f.value.MerchImage == null"
+                class="bmd-label-floating"
+              >
+                {{
+                  f.value.post_image == null ? "*Content Picture Required" : ""
+                }}</span
+              >
+              <img
+                *ngIf="PhotoFileName != null"
+                [src]="PhotoFilePath"
+                alt=""
+                srcset=""
+                height="300px"
+                width="300px"
+              />
+              <input
+                type="file"
+                formControlName="post_image"
+                id="image"
+                class="form-control"
+                (change)="onImageSelected($event)"
+                accept="image/*"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating"
+                  >Post Title
+                  {{ f.value.post_title == null ? "*Required" : "" }}</label
+                >
+                <input
+                  formControlName="post_title"
+                  type="text"
+                  class="form-control"
+                  maxlength="100"
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating"
+                  >Post Intro
+                  {{ f.value.post_intro == null ? "*Required" : "" }}</label
+                >
+                <input
+                  formControlName="post_intro"
+                  type="text"
+                  class="form-control"
+                  maxlength="200"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label
+                  >Post Content
+                  {{ f.value.post_content == null ? "*Required" : "" }}</label
+                >
+                <div class="form-group">
+                  <label class="bmd-label-floating"
+                    >You can edit the content of your post here</label
+                  >
+                  <editor
+                    [formControl]="form.controls.post_content"
+                    [apiKey]="apiKey"
+                    [init]="RTEInit"
+                    (onInit)="handleEditorInit($event)"
+                  ></editor>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary pull-right"
+            [disabled]="f.invalid"
+          >
+            Submit
+          </button>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

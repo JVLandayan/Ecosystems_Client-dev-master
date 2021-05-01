@@ -1,0 +1,64 @@
+<section
+  id="merchandise"
+  class="content-section text-center"
+  style="padding: 100px 0px; background-color: #f1f1f1"
+  *ngIf="merch_list.length != 0"
+>
+  <div class="container">
+    <div class="intro">
+      <h2 class="text-center" style="font-size: 40px; color: black">
+        Merchandise
+      </h2>
+      <p class="text-center" style="color: #6c757d">
+        Catch the Latest Merchandise of the Organization, press the See more for
+        more details.
+      </p>
+    </div>
+
+    <!--Template for dynamic data-->
+    <div class="row projects justify-content-center">
+      <div class="col-md-4" *ngFor="let items of merch_list">
+        <div class="card mb-4">
+          <div style="overflow: hidden; display: inline-block">
+            <img
+              class="card-img-top"
+              [src]="apiImgUrl + items.merchImage"
+              alt="Card image cap"
+              width="290px"
+              height="240px"
+            />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title" style="color: black">
+              {{ items.merchName }}
+            </h5>
+            <p class="card-text" style="color: black">
+              {{ items.merchDetails }}
+            </p>
+            <a
+              [href]="items.merchLink"
+              target="_blank"
+              [class]="
+                items.merchLink == '' || items.merchLink == null
+                  ? 'disabled'
+                  : ''
+              "
+            >
+              <button
+                style="color: black"
+                [class]="
+                  items.merchLink == '' || items.merchLink == null
+                    ? 'btn btn-outline-dark btn-sm '
+                    : 'btn btn-outline-dark btn-sm'
+                "
+              >
+                See more
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!--Static data-->
+    </div>
+  </div>
+</section>

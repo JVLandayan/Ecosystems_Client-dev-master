@@ -1,0 +1,49 @@
+<form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Settings</h4>
+              <p class="card-category">Edit Settings</p>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Mission</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="input_mission"
+                      [(ngModel)]="input_mission"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="bmd-label-floating">Vision</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="input_vision"
+                      [(ngModel)]="input_vision"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary pull-right">
+                Update
+              </button>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,109 @@
+<section
+  id="articles"
+  class="content-section text-center"
+  style="padding: 100px 0px; background-color: #ffffff"
+  *ngIf="last_article != null || last_article != undefined"
+>
+  <div class="container">
+    <div class="blog-home3 py-5">
+      <div class="container">
+        <!-- Row  -->
+        <div class="row justify-content-center">
+          <!-- Column -->
+          <div class="col-md-8 text-center">
+            <h3 class="my-3 section-heading">Articles</h3>
+            <h6 class="subtitle font-weight-normal">
+              Read the Opinions and Insights of the Organization
+            </h6>
+          </div>
+          <!-- Column -->
+          <!-- Column -->
+        </div>
+        <div class="row mt-4">
+          <!-- Column -->
+          <div class="col-lg-6" *ngIf="isLoaded">
+            <div class="card border-0 mb-4">
+              <a [routerLink]="['articles', last_article.id]"
+                ><img
+                  class="card-img-top"
+                  [src]="photoUrl + last_article.image"
+                  alt="wrappixel kit"
+                  width="525px"
+                  height="380px"
+              /></a>
+              <div class="date-pos text-center text-white p-3 bg-warning">
+                {{
+                  last_article.authorName +
+                    "&nbsp; &nbsp;" +
+                    last_article.dateofPublish
+                }}
+              </div>
+              <h5 class="font-weight-medium mt-3">
+                <a
+                  [routerLink]="['articles', last_article.id]"
+                  class="link text-decoration-none"
+                  >{{ last_article.name }}
+                </a>
+              </h5>
+              <p class="m-t-20">
+                {{ last_article.contentIntro }}
+              </p>
+            </div>
+          </div>
+          <!-- Column -->
+          <div class="col-lg-6">
+            <div class="row">
+              <!-- Column -->
+              <div
+                class="col-md-6"
+                *ngFor="
+                  let article of articles_landing_list.slice().reverse()
+                    | slice: 1;
+                  let i = index
+                "
+              >
+                <div *ngIf="i < 4">
+                  <div class="card border-0 mb-4">
+                    <a [routerLink]="['articles', article.id]"
+                      ><img
+                        class="card-img-top"
+                        [src]="photoUrl + this.article.image"
+                        alt="wrappixel kit"
+                        height="160px"
+                    /></a>
+                    <div class="date-pos text-center text-white p-3 bg-warning">
+                      {{
+                        (article.authorName | uppercase) +
+                          "&nbsp; &nbsp;" +
+                          (article.dateofPublish | uppercase)
+                      }}
+                    </div>
+                    <h6 class="font-weight-medium mt-3">
+                      <a
+                        [routerLink]="['articles', article.id]"
+                        class="link text-decoration-none"
+                        >{{ article.name }}</a
+                      >
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Column -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="row"
+    style="margin: 0px 25.5px; padding-right: 15px; padding-left: 15px"
+    *ngIf="articles_landing_list.length >= 1"
+  >
+    <div class="col text-right" style="padding: 0px">
+      <a class="text-uppercase text-right" routerLink="articles"
+        >See more&nbsp;<i class="fa fa-arrow-right"></i>&nbsp;</a
+      >
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+<section
+  id="missionvision"
+  class="content-section text-center"
+  style="padding: 200px 0px; padding-bottom: 300px; background-color: black"
+  *ngIf="contentExists && MissionDisplay != '' && VisionDisplay != ''"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <section id="section-timeline" style="padding: 0px">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-left">
+                <h2 class="section-heading" style="color: #ffc107">Mission</h2>
+                <h3
+                  class="section-subheading text-muted"
+                  style="font-size: 24px"
+                >
+                  {{ MissionDisplay }}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <section id="section-timeline" style="padding: 0px">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-left">
+                <h2 class="section-heading" style="color: #ffc107">Vision</h2>
+                <h3
+                  class="section-subheading text-muted"
+                  style="font-size: 24px"
+                >
+                  {{ VisionDisplay }}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</section>

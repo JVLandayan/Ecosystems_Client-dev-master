@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Add Account</h4>
+        <p class="card-category">Add an account</p>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="row">
+            <div class="col-md-4">
+              <img
+                *ngIf="PhotoFileName != null"
+                [src]="PhotoFilePath"
+                alt=""
+                srcset=""
+                height="300px"
+                width="300px"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="custom-file">
+                <input
+                  type="file"
+                  formControlName="image"
+                  id="image"
+                  class="form-control"
+                  (change)="onImageSelected($event)"
+                  accept="image/*"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating">First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="first_name"
+                  pattern="[a-zA-Z\s]+"
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating">Middle Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="middle_name"
+                  pattern="[a-zA-Z\s]+"
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="last_name"
+                  pattern="[a-zA-Z\s]+"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">UST Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  formControlName="ust_email"
+                  placeholder="johndoe.eng@ust.edu.ph"
+                  pattern=".+@ust.edu.ph"
+                  id="ust_email"
+                />
+                <span
+                  *ngIf="
+                    form.get('ust_email').dirty && form.get('ust_email').invalid
+                  "
+                  >Please input a valid ust email</span
+                >
+              </div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary pull-right"
+            [disabled]="form.invalid"
+          >
+            Submit
+          </button>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

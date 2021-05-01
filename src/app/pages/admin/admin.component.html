@@ -1,0 +1,9 @@
+<div class="wrapper">
+  <app-admin-navbar></app-admin-navbar>
+  <div class="main-panel">
+    <h1 *ngIf="this.activeRoute == '/authpanel'"></h1>
+    <router-outlet></router-outlet>
+  </div>
+  <h1></h1>
+</div>
+Hi {{ currentUser.firstName }}

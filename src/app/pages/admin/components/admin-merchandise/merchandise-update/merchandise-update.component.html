@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Update Merchandise</h4>
+        <p class="card-category">Update a Merchandise</p>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="row" *ngIf="imgLoaded">
+            <div class="col-md-4">
+              <img
+                *ngIf="this.imageSrc == null"
+                [src]="imgSrc"
+                alt=""
+                srcset=""
+                height="300px"
+                width="300px"
+              />
+              <img
+                *ngIf="this.imageSrc != null"
+                [src]="this.imageSrc"
+                alt=""
+                srcset=""
+                height="300px"
+                width="300px"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="custom-file">
+                <input
+                  type="file"
+                  formControlName="image"
+                  id="image"
+                  class="form-control"
+                  (change)="onImageSelected($event)"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Item Name</label>
+                <input
+                  type="text"
+                  formControlName="item_name"
+                  class="form-control"
+                  [ngModel]="input_item_name"
+                  maxlength="30"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Merchandise Link</label>
+                <input
+                  type="text"
+                  formControlName="item_link"
+                  class="form-control"
+                  [ngModel]="input_item_link"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">Item details</label>
+                <input
+                  type="text"
+                  formControlName="item_details"
+                  class="form-control"
+                  [ngModel]="input_item_details"
+                  maxlength="50"
+                />
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary pull-right">
+            Submit
+          </button>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

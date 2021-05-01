@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Edit Content</h4>
+        <p class="card-category">You can edit the article here</p>
+      </div>
+      <div class="card-body">
+        <img
+          *ngIf="this.imageSrc != null && isLoaded == true"
+          [src]="imgSrc"
+          alt=""
+          srcset=""
+          height="300px"
+          width="300px"
+        />
+        <img
+          *ngIf="this.imageSrc == null"
+          [src]="this.imageSrc"
+          alt=""
+          srcset=""
+          height="300px"
+          width="300px"
+        />
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="row">
+            <div class="col-md-4">
+              <input
+                type="file"
+                id="image"
+                formControlName="post_image"
+                accept="image/*"
+                (change)="onImageSelected($event)"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">Post Title</label>
+                <input
+                  formControlName="post_title"
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="inputTitle"
+                  maxlength="100"
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating">Post Introduction</label>
+                <input
+                  formControlName="post_intro"
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="inputIntro"
+                  maxlength="200"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>Post Content</label>
+                <div class="form-group">
+                  <label class="bmd-label-floating"
+                    >You can edit the content of your post here</label
+                  >
+                  <editor
+                    [formControl]="form.controls.post_content"
+                    [apiKey]="apiKey"
+                    [init]="RTEInit"
+                    (onInit)="handleEditorInit($event)"
+                    [(initialValue)]="RTEinitial"
+                  ></editor>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary pull-right">
+            Submit
+          </button>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

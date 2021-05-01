@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row mh-100vh">
+    <div
+      class="col-10 col-sm-8 col-md-6 col-lg-6 offset-1 offset-sm-2 offset-md-3 offset-lg-0 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0"
+      id="login-block"
+    >
+      <div class="m-auto w-lg-75 w-xl-50">
+        <h2 class="text-warning font-weight-light mb-5">
+          <i class="fa fa-diamond"></i>&nbsp;Ecotigers
+        </h2>
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="form-group">
+            <label class="text-secondary">New Password</label
+            ><input
+              name="username"
+              class="form-control"
+              type="password"
+              formControlName="new_password"
+            />
+          </div>
+          <div class="form-group">
+            <label class="text-secondary">Confirm Password</label
+            ><input
+              name="password"
+              class="form-control"
+              type="password"
+              formControlName="confirm_new_password"
+            />
+            <span
+              style="color: black"
+              *ngIf="f.value.confirm_new_password != f.value.new_password"
+              >Password doesn't match</span
+            >
+          </div>
+
+          <button
+            class="btn btn-info mt-2 bg-warning"
+            type="submit"
+            [disabled]="
+              f.value.confirm_new_password != f.value.new_password || f.invalid
+            "
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div
+      class="col-lg-6 d-flex align-items-end"
+      id="bg-block"
+      style="
+        background-image: url('https://www.stockvault.net/data/2009/09/08/110364/preview16.jpg');
+        background-size: cover;
+        background-position: center center;
+      "
+    ></div>
+  </div>
+</div>

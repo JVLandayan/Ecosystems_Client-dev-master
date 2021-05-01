@@ -1,0 +1,146 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Add Team Member</h4>
+        <p class="card-category">You can add a team member here</p>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <img
+            *ngIf="PhotoFileName != null"
+            [src]="PhotoFilePath"
+            alt=""
+            srcset=""
+            height="300px"
+            width="300px"
+          />
+          <div class="row">
+            <div class="col-md-4">
+              <span>
+                {{
+                  f.value.image == null
+                    ? "Profile Picture *Required(Preferably 1:1 aspect ratio of photo)"
+                    : ""
+                }}</span
+              >
+              <div class="custom-file">
+                <input
+                  type="file"
+                  formControlName="image"
+                  id="image"
+                  class="form-control"
+                  (change)="onImageSelected($event)"
+                  accept="image/*"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating"
+                  >Name (Fn Ln)
+                  {{ f.value.teams_name == null ? "*Required" : "" }}</label
+                >
+                <input
+                  type="text"
+                  formControlName="teams_name"
+                  class="form-control"
+                  maxlength="40"
+                  pattern="[a-zA-Z\s]+"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label
+                  >Role
+                  {{ f.value.teams_role == null ? "*Required" : "" }}</label
+                >
+                <div class="form-group">
+                  <input
+                    type="text"
+                    formControlName="teams_role"
+                    class="form-control"
+                    maxlength="18"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label
+                  >About
+                  {{
+                    f.value.teams_detail == null
+                      ? "*Required"
+                      : "*Minimum length of 10 words | Maximum of 40"
+                  }}
+                </label>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    formControlName="teams_detail"
+                    class="form-control"
+                    minlength="40"
+                    maxlength="200"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Social Media Accounts-->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating">Facebook Link</label>
+                <input
+                  type="url"
+                  formControlName="teams_facebook_link"
+                  class="form-control"
+                  placeholder="https://facebook.com/johndoe"
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating">Twitter Link</label>
+                <input
+                  type="url"
+                  formControlName="teams_twitter_link"
+                  class="form-control"
+                  placeholder="https://twitter.com/johndoe"
+                />
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating">Instagram Link</label>
+                <input
+                  type="url"
+                  formControlName="teams_instagram_link"
+                  class="form-control"
+                  placeholder="https://instagram.com/johndoe"
+                />
+              </div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            [disabled]="f.invalid"
+            class="btn btn-primary pull-right"
+          >
+            Add
+          </button>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Add Merchandise</h4>
+        <p class="card-category">Add a Merchandise</p>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form" #f="ngForm" (ngSubmit)="onSubmit(f)">
+          <div class="row">
+            <div class="col-md-4">
+              <img
+                *ngIf="PhotoFileName != null"
+                [src]="PhotoFilePath"
+                alt=""
+                srcset=""
+                height="300px"
+                width="300px"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <span
+                *ngIf="f.value.MerchImage == null"
+                class="bmd-label-floating"
+                >Item Image
+                {{ f.value.MerchImage == null ? "*Required" : "" }}</span
+              >
+              <div class="custom-file">
+                <input
+                  type="file"
+                  formControlName="MerchImage"
+                  id="image"
+                  class="form-control"
+                  (change)="onImageSelected($event)"
+                  accept="image/*"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating"
+                  >Item Name
+                  {{ f.value.MerchName == null ? "*Required" : "" }}</label
+                >
+                <input
+                  type="text"
+                  formControlName="MerchName"
+                  class="form-control"
+                  maxlength="30"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Merchandise Link </label>
+                <input
+                  type="url"
+                  formControlName="MerchLink"
+                  class="form-control"
+                  placeholder="https://website.com"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label class="bmd-label-floating"
+                  >Item details
+                  {{ f.value.MerchDetails == null ? "*Required" : "" }}</label
+                >
+                <input
+                  type="text"
+                  formControlName="MerchDetails"
+                  class="form-control"
+                  maxlength="50"
+                />
+              </div>
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary pull-right"
+            [disabled]="
+              f.value.MerchImage == null ||
+              f.value.MerchName == null ||
+              f.value.MerchDetails == null
+            "
+          >
+            Submit
+          </button>
+          <div class="clearfix"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

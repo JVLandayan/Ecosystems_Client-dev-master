@@ -1,0 +1,50 @@
+<div class="row" style="padding-top: 5%">
+  <div class="col-md-4" *ngFor="let member of teams_list">
+    <div class="card card-profile">
+      <div class="card-avatar">
+        <a href="javascript:;">
+          <img
+            class="img"
+            style="width: 130px; height: 156.641px"
+            [src]="photoUrl + this.member.teamsImage"
+          />
+        </a>
+      </div>
+      <div class="card-body">
+        <h6 class="card-category text-gray">{{ member.teamsRole }}</h6>
+        <h4 class="card-title">{{ member.teamsName }}</h4>
+        <p class="card-description">
+          {{ member.teamsDetails }}
+        </p>
+        <a
+          class="btn btn-primary btn-round"
+          [routerLink]="['update', member.teamsId]"
+          >Edit</a
+        >
+        <a
+          class="btn btn-primary btn-round"
+          (click)="onDeleteTeamMember(member.teamsId)"
+          >Delete</a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-profile">
+      <div class="card-avatar">
+        <a href="javascript:;">
+          <img
+            class="img"
+            src="https://www.balcomagency.com/sites/default/files/Lola-in-studio-test-shot.jpg"
+          />
+        </a>
+      </div>
+      <div class="card-body">
+        <h6 class="card-category text-gray">&nbsp;</h6>
+        <h4 class="card-title">Add a member</h4>
+        <p class="card-description">&nbsp;</p>
+        <a class="btn btn-primary btn-round" routerLink="add">Add</a>
+      </div>
+    </div>
+  </div>
+</div>
