@@ -16,7 +16,6 @@ list-type-ulli {
   padding: 0;
 }
 
-
 /* Legacy iOS */
 
 a:focus,
@@ -62,7 +61,7 @@ textarea:focus {
   -ms-box-shadow: none !important;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
   appearance: checkbox !important;
   -moz-appearance: checkbox !important;
   -webkit-appearance: checkbox !important;
@@ -70,7 +69,7 @@ input[type=checkbox] {
   -ms-appearance: checkbox !important;
 }
 
-input[type=radio] {
+input[type="radio"] {
   appearance: radio !important;
   -moz-appearance: radio !important;
   -webkit-appearance: radio !important;
@@ -87,7 +86,7 @@ figure {
   margin: 0;
 }
 
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield !important;
   appearance: none !important;
   -webkit-appearance: none !important;
@@ -116,15 +115,14 @@ h2 {
   clear: both;
 }
 
-.body  {
-    font-size: 13px;
-    line-height: 1.8;
-    color: #222;
-    font-weight: 400;
-    background: #282828;
-    padding: 90px 0;
+.body {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #222;
+  font-weight: 400;
+  background: #282828;
+  padding: 90px 0;
 }
-
 
 .container {
   width: 1400px;
@@ -137,7 +135,6 @@ h2 {
 .signup-form {
   width: 50%;
 }
-
 
 .register-form {
   padding: 50px 100px 50px 70px;
@@ -153,7 +150,7 @@ h2 {
 }
 
 .form-group {
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   position: relative;
 }
 
@@ -222,14 +219,14 @@ label {
   top: 4px;
   left: 0px;
   z-index: 5;
-  transition: border .25s linear;
-  -webkit-transition: border .25s linear;
+  transition: border 0.25s linear;
+  -webkit-transition: border 0.25s linear;
 }
 
 .check:before {
   position: absolute;
   display: block;
-  content: '';
+  content: "";
   width: 9px;
   height: 9px;
   border-radius: 50%;
@@ -244,16 +241,16 @@ label {
   -webkit-transition: background 0.25s linear;
 }
 
-input[type=radio] {
+input[type="radio"] {
   position: absolute;
   visibility: hidden;
 }
 
-input[type=radio]:checked~.check {
+input[type="radio"]:checked ~ .check {
   border: 1px solid #ff6801;
 }
 
-input[type=radio]:checked~.check::before {
+input[type="radio"]:checked ~ .check::before {
   background: #ff6801;
 }
 
@@ -311,14 +308,13 @@ select {
 .form-submit {
   text-align: right;
   padding-top: 27px;
-
 }
 
 .submit {
   width: 140px;
   height: 40px;
   display: inline-block;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 13px;
   padding: 10px;

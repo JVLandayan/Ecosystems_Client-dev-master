@@ -25,6 +25,7 @@ export class ApplyformComponent implements OnInit {
       }),
       ust_email: new FormControl(null, { validators: [Validators.required] }),
       role: new FormControl({ validators: [Validators.required] }),
+      cv_link: new FormControl(null, { validators: [Validators.required] }),
     });
   }
   onSubmit(f: NgForm) {
@@ -37,6 +38,7 @@ export class ApplyformComponent implements OnInit {
     form_payload.append('StudentNumber', f.value.student_number);
     form_payload.append('UstEmail', f.value.ust_email);
     form_payload.append('Role', f.value.role);
+    form_payload.append('CvLink', f.value.cv_link);
 
     this.http.post(this.scriptUrl, form_payload).subscribe(() => {
       alert('Successfully Registered');
