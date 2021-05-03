@@ -12,11 +12,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['../../admin.component.css'],
 })
 export class AdminOthersComponent implements OnInit {
-  constructor(
-    private adminService: AdminService,
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private adminService: AdminService) {}
   form: FormGroup;
   input_vision;
   input_mission;
@@ -53,14 +49,16 @@ export class AdminOthersComponent implements OnInit {
       if (conf == true) {
         this.adminService.UPDATE_state(form_payload, this.defaultId).subscribe(
           (response) => {
-            alert(response);
+            alert('Succesfully Updated');
           },
           (error) => alert(error)
         );
       }
     } else {
       this.adminService.POST_state(form_payload).subscribe(
-        (response) => {},
+        (response) => {
+          alert('Successfully Added');
+        },
         (error) => {
           alert(error);
         }
